@@ -1,5 +1,13 @@
 {
   "name": "weather_forecast_app",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/webpacker": "^3.2.0",
+    "coffeescript": "1.12.7",
+    "yarn-install": "^0.5.1"
+  },
+  "devDependencies": {
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  }
 }
