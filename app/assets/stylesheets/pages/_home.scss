@@ -1,1 +1,39 @@
-// Specific CSS for your home-page
+.logo {
+  text-align: center;
+}
+
+.city-name {
+  text-align: center;
+
+}
+
+.overall-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-container {
+  width: 70%;
+  background-color: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.weather-card {
+  height: 300px;
+  width: 200px;
+  background-color: grey;
+  margin: 10px;
+  padding: 30px;
+}
+
+
+@media(max-width: 921px) {
+  .card-container {
+    flex-direction: column;
+  }
+}
+
