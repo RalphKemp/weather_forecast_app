@@ -11,7 +11,7 @@ button.addEventListener("click", (event) => {
     .then((data) => {
       const id = data.city.id;
       const country = data.city.country;
-      const all = `<h3> the city ID is ${id} and the country is ${country} </h3>`;
+      const all = `<div id="card"> the city ID is ${id} and the country is ${country} </card>`;
 
       weatherContainer.insertAdjacentHTML('afterbegin', all);
     });

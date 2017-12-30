@@ -9,43 +9,24 @@
   height: 300px;
   width: 100%;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 #results {
   list-style: none;
 }
 
-
-
-
-
-
-
-
-
-.overall-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 70%;
-  height: auto;
-}
-
 #card-container {
-  width: 70%;
-  background-color: grey ;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 100px;
   list-style: none;
 }
 
-#weather-card {
-  height: 300px;
-  width: 200px;
-  background-color: green;
-  margin: 10px;
-  padding: 30px;
+#card {
+  width: 250px;
+  height: 200px;
+  background-color: blue;
+  color: white;
+  text-align: center;
 }
-
