@@ -8,7 +8,8 @@ button.addEventListener("click", (event) => {
     .then((data) => {
       const name = data.city.name;
       const country = data.city.country;
-      const all = `the name is ${name} and the country is ${country}`;
+      const all = `<h3> the name is ${name} and the country is ${country} </h3>`;
+
       weatherContainer.insertAdjacentHTML('afterbegin', all);
     });
 });

@@ -1,45 +1,46 @@
 .logo {
   text-align: center;
 }
-
-
 .form-container {
   text-align: center;
 }
 
 #weather-container {
   height: 300px;
-  width: 300px;
+  width: 100%;
+  text-align: center;
 }
 
 
-.overall-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card-container {
-  width: 70%;
-  background-color: pink;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 100px;
-}
-
-.weather-card {
-  height: 300px;
-  width: 200px;
-  background-color: grey;
-  margin: 10px;
-  padding: 30px;
-}
 
 
-@media(max-width: 921px) {
-  .card-container {
-    flex-direction: column;
-  }
-}
+
+
+
+
+
+
+
+// .overall-container {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// .card-container {
+//   width: 70%;
+//   background-color: pink;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   margin-top: 100px;
+// }
+
+// .weather-card {
+//   height: 300px;
+//   width: 200px;
+//   background-color: grey;
+//   margin: 10px;
+//   padding: 30px;
+// }
 
