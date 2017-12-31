@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^3.2.0",
+    "amcharts3": "github:amcharts/amcharts3",
     "coffeescript": "1.12.7",
     "yarn-install": "^0.5.1"
   },
