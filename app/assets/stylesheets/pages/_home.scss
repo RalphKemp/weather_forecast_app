@@ -9,16 +9,16 @@
   list-style: none;
 }
 
-#weather-container {
-  height: auto;
-  width: 100%;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 30px;
-}
+// #weather-container {
+//   height: auto;
+//   width: 100%;
+//   text-align: center;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex-direction: column;
+//   margin-top: 30px;
+// }
 
 #card {
   width: 850px;
@@ -31,4 +31,13 @@
   align-items: center;
   font-size: 18px;
   margin: 20px 0px;
+}
+
+#search {
+  outline: none;
+}
+
+#chart-container {
+  width: 90%;
+  text-align: center;
 }
