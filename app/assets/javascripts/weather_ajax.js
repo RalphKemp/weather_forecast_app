@@ -9,9 +9,9 @@ button.addEventListener("click", (event) => {
   fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`)
     .then(response => response.json())
     .then((data) => {
-      const id = data.city.id;
-      const country = data.city.country;
-      const all = `<div id="card"> the city ID is ${id} and the country is ${country} </card>`;
+      const name = data.city.name;
+      const id = data.list[12].main.temp;
+      const all = `<div id="card"><h3>${name}</h3> ${id} </div>`;
 
       weatherContainer.insertAdjacentHTML('afterbegin', all);
     });
