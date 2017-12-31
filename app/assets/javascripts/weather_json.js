@@ -3,8 +3,6 @@ const search = document.getElementById('search');
 const weatherContainer = document.getElementById('weather-container');
 const results = document.getElementById('results');
 
-
-
 button.addEventListener("click", (event) => {
   fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`)
     .then(response => response.json())

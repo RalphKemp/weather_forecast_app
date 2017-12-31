@@ -5,6 +5,7 @@
     "@rails/webpacker": "^3.2.0",
     "amcharts3": "github:amcharts/amcharts3",
     "coffeescript": "1.12.7",
+    "fusioncharts": "^3.12.2",
     "yarn-install": "^0.5.1"
   },
   "devDependencies": {
