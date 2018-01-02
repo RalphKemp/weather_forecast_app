@@ -4,15 +4,15 @@ const weatherContainer = document.getElementById('weather-container');
 const results = document.getElementById('results');
 
 
-
-
 button.addEventListener("click", (event) => {
   fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`)
     .then(response => response.json())
     .then((data) => {
       const name = data.city.name;
       const country = data.city.country;
-      const id = data.list[12].main.temp;
+
+      const testTemp = (data.list[1].main.temp - 273.15);
+      const temp = (Math.round(testTemp * 100) / 100);
 
       const jsonDate = new Date(data.list[0].dt_txt);
       const weekday = new Array(7);
@@ -42,7 +42,7 @@ button.addEventListener("click", (event) => {
                     "caption": `${name}`,
                     "subCaption": `${country}`,
                     "xAxisName": "Day",
-                    "yAxisName": "Temp (K)",
+                    "yAxisName": "Temp (°C)",
 
                     //Cosmetics
                     "lineThickness" : "4",
@@ -72,30 +72,30 @@ button.addEventListener("click", (event) => {
                 "data": [
                     {
                         "label": `${dayOne}`,
-                        "value": "15123"
+                        "value": `${temp}`
                     },
                     {
                         "label": `${dayTwo}`,
-                        "value": "14233"
+                        "value": "14"
                     },
                     {
                         "label": `${dayThree}`,
-                        "value": "23507"
+                        "value": "54",
                     },
                     {
                         "label": `${dayFour}`,
-                        "value": "9110"
+                        "value": "91"
                     },
                     {
                         "label": `${dayFive}`,
-                        "value": "15529"
+                        "value": "15"
                     }
                 ],
                 "trendlines": [
                     {
                         "line": [
                             {
-                                "startvalue": "18500",
+                                "startvalue": "10",
                                 "color": "#1aaf5d",
                                 "displayvalue": "",
                                 "valueOnRight" : "1",
