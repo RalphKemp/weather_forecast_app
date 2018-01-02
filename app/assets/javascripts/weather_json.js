@@ -3,6 +3,9 @@ const search = document.getElementById('search');
 const weatherContainer = document.getElementById('weather-container');
 const results = document.getElementById('results');
 
+
+
+
 button.addEventListener("click", (event) => {
   fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`)
     .then(response => response.json())
@@ -10,7 +13,22 @@ button.addEventListener("click", (event) => {
       const name = data.city.name;
       const country = data.city.country;
       const id = data.list[12].main.temp;
-      const all = `<div id="card"><h3>${name}</h3> ${id} </div>`;
+
+      const jsonDate = new Date(data.list[0].dt_txt);
+      const weekday = new Array(7);
+      weekday[0] = "Sunday";
+      weekday[1] = "Monday";
+      weekday[2] = "Tuesday";
+      weekday[3] = "Wednesday";
+      weekday[4] = "Thursday";
+      weekday[5] = "Friday";
+      weekday[6] = "Saturday";
+      const dayOne = weekday[jsonDate.getDay()];
+      const dayTwo = weekday[jsonDate.getDay()+1];
+      const dayThree = weekday[jsonDate.getDay()+2];
+      const dayFour = weekday[jsonDate.getDay()+3];
+      const dayFive = weekday[jsonDate.getDay()+4];
+
 
       FusionCharts.ready(function () {
         var visitChart = new FusionCharts({
@@ -53,23 +71,23 @@ button.addEventListener("click", (event) => {
                 },
                 "data": [
                     {
-                        "label": "Mon",
+                        "label": `${dayOne}`,
                         "value": "15123"
                     },
                     {
-                        "label": "Tue",
+                        "label": `${dayTwo}`,
                         "value": "14233"
                     },
                     {
-                        "label": "Wed",
+                        "label": `${dayThree}`,
                         "value": "23507"
                     },
                     {
-                        "label": "Thu",
+                        "label": `${dayFour}`,
                         "value": "9110"
                     },
                     {
-                        "label": "Fri",
+                        "label": `${dayFive}`,
                         "value": "15529"
                     }
                 ],
