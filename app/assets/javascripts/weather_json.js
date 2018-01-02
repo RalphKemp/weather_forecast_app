@@ -11,10 +11,17 @@ button.addEventListener("click", (event) => {
       const name = data.city.name;
       const country = data.city.country;
 
-      const testTemp = (data.list[1].main.temp - 273.15);
-      const temp = (Math.round(testTemp * 100) / 100);
 
-      const jsonDate = new Date(data.list[0].dt_txt);
+
+
+      // today's GMT
+      const today = new Date();
+      const gmt = today.toUTCString();
+
+
+      // THE DAY OF THE FIRST RESULT
+      const testing = data.list[0];
+      const jsonDate = new Date(testing.dt_txt);
       const weekday = new Array(7);
       weekday[0] = "Sunday";
       weekday[1] = "Monday";
@@ -28,6 +35,21 @@ button.addEventListener("click", (event) => {
       const dayThree = weekday[jsonDate.getDay()+2];
       const dayFour = weekday[jsonDate.getDay()+3];
       const dayFive = weekday[jsonDate.getDay()+4];
+
+      console.log(testing.main.temp);
+
+
+      // GMT of the first result
+      // const jsonDate = new Date(data.list[0].dt_txt);
+      // const dayOfResult = jsonDate.toUTCString();
+
+
+      // temperature of the first result in the JSON hash
+      const testTemp = (data.list[0].main.temp - 273.15);
+      const temp = (Math.round(testTemp * 100) / 100);
+
+
+
 
 
       FusionCharts.ready(function () {
