@@ -14,41 +14,26 @@ button.addEventListener("click", (event) => {
 
 
 
-      // today's GMT
-      const today = new Date();
-      const gmt = today.toUTCString();
+        // TODAY'S DATE
+        const today = new Date();
+        const gmt = today.toUTCString();
 
+        // NAME OF DAY
+        const firstDay = data.list[0];
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        var dayDay = function(date) {
+          const tmp = new Date(date);
+          return days[tmp.getDay()];
+        };
 
-      // THE DAY OF THE FIRST RESULT
-      const testing = data.list[0];
-      const jsonDate = new Date(testing.dt_txt);
-      const weekday = new Array(7);
-      weekday[0] = "Sunday";
-      weekday[1] = "Monday";
-      weekday[2] = "Tuesday";
-      weekday[3] = "Wednesday";
-      weekday[4] = "Thursday";
-      weekday[5] = "Friday";
-      weekday[6] = "Saturday";
-      const dayOne = weekday[jsonDate.getDay()];
-      const dayTwo = weekday[jsonDate.getDay()+1];
-      const dayThree = weekday[jsonDate.getDay()+2];
-      const dayFour = weekday[jsonDate.getDay()+3];
-      const dayFive = weekday[jsonDate.getDay()+4];
+        console.log(dayDay(firstDay.dt_txt));
 
-      console.log(testing.main.temp);
+        // GMT
+        const hello = firstDay.dt_txt;
 
-
-      // GMT of the first result
-      // const jsonDate = new Date(data.list[0].dt_txt);
-      // const dayOfResult = jsonDate.toUTCString();
-
-
-      // temperature of the first result in the JSON hash
-      const testTemp = (data.list[0].main.temp - 273.15);
-      const temp = (Math.round(testTemp * 100) / 100);
-
-
+        // FIRST DAY TEMP
+        const dayTemp = (firstDay.main.temp - 273.15);
+        const temp = (Math.round(dayTemp * 100) / 100);
 
 
 
@@ -93,23 +78,23 @@ button.addEventListener("click", (event) => {
                 },
                 "data": [
                     {
-                        "label": `${dayOne}`,
+                        "label": `${(dayDay(firstDay.dt_txt))}`, // to be changed properly once data is managed
                         "value": `${temp}`
                     },
                     {
-                        "label": `${dayTwo}`,
+                        "label": "`${dayTwo}`",
                         "value": "14"
                     },
                     {
-                        "label": `${dayThree}`,
+                        "label": "`${dayThree}`",
                         "value": "54",
                     },
                     {
-                        "label": `${dayFour}`,
+                        "label": "`${dayFour}`",
                         "value": "91"
                     },
                     {
-                        "label": `${dayFive}`,
+                        "label": "`${dayFive}`",
                         "value": "15"
                     }
                 ],
