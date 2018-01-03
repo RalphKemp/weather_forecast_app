@@ -12,8 +12,6 @@ button.addEventListener("click", (event) => {
       const country = data.city.country;
 
 
-
-
         // TODAY'S DATE
         const today = new Date();
         const gmt = today.toUTCString();
@@ -26,15 +24,12 @@ button.addEventListener("click", (event) => {
           return days[tmp.getDay()];
         };
 
-        console.log(dayDay(firstDay.dt_txt));
-
         // GMT
         const hello = firstDay.dt_txt;
 
         // FIRST DAY TEMP
         const dayTemp = (firstDay.main.temp - 273.15);
         const temp = (Math.round(dayTemp * 100) / 100);
-
 
 
       FusionCharts.ready(function () {
