@@ -91,6 +91,10 @@ alphanum-sort@^1.0.1, alphanum-sort@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
 
+"amcharts3@github:amcharts/amcharts3":
+  version "3.21.12"
+  resolved "https://codeload.github.com/amcharts/amcharts3/tar.gz/2fa0269779665bea270ddda447b4cc59418e999b"
+
 amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
@@ -2164,6 +2168,10 @@ fstream@^1.0.0, fstream@^1.0.10, fstream@^1.0.2:
 function-bind@^1.0.2, function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
+
+fusioncharts@^3.12.2:
+  version "3.12.2"
+  resolved "https://registry.yarnpkg.com/fusioncharts/-/fusioncharts-3.12.2.tgz#df255ffd39929a1873135892460d5ce59b637176"
 
 gauge@~2.7.3:
   version "2.7.4"
