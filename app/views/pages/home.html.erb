@@ -13,20 +13,10 @@
 <div id="card-container">
   <div class="swiper-container">
     <div class="swiper-wrapper">
-
-      <div class="swiper-slide individual-slide">
-        <!-- cards to go here --> <div class="card">1</div>
-      </div>
-      <div class="swiper-slide individual-slide">
-        <!-- cards to go here --> <div class="card">2</div>
-      </div>
-       <div class="swiper-slide individual-slide" id="info-swipe">
-
+      <div class="swiper-slide individual-slide" id="info-swipe">
       </div>
       <div class="swiper-slide individual-slide" id="chart-swipe">
-
       </div>
-
     </div>
     <div class="swiper-pagination swiper-all-cards"></div>
   </div>
@@ -37,18 +27,3 @@
   <div id="chart-container"><!-- FusionCharts will render here --></div>
 </div>
 
-
-<% content_for(:after_js) do %>
-<!-- Initialize Swiper -->
-  <%= javascript_tag do %>
-    var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        slidesPerView: 1,
-        paginationClickable: true,
-        spaceBetween: 30,
-        keyboardControl: true,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-    });
-  <% end %>
-<% end %>

@@ -120,6 +120,18 @@ button.addEventListener("click", (event) => {
         });
 
         visitChart.render();
+
+        var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 1,
+        paginationClickable: true,
+        spaceBetween: 30,
+        keyboardControl: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        loop: false,
+        stopOnLast: true,
+    });
     });
   });
 });
