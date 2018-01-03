@@ -14,35 +14,65 @@ button.addEventListener("click", (event) => {
     .then((data) => {
       const name = data.city.name;
       const country = data.city.country;
+      const countryLat = data.city.coord.lat;
+      const countryLon = data.city.coord.lon;
 
       infoSwipe.insertAdjacentHTML('afterbegin', `<div class="card">${name}</div>`);
 
 
+
+
+
         // TODAY'S DATE
-        const today = new Date();
-        const gmt = today.toUTCString();
+      const today = new Date();
+      const gmt = today.toUTCString();
 
-        // NAME OF DAY
-        const firstDay = data.list[0];
-        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        var dayDay = function(date) {
-          const tmp = new Date(date);
-          return days[tmp.getDay()];
-        };
+      // NAME OF DAY
+      const firstDay = data.list[0];
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      var dayDay = function(date) {
+        const tmp = new Date(date);
+        return days[tmp.getDay()];
+      };
 
-        // GMT
-        const hello = firstDay.dt_txt;
+      // GMT
+      const hello = firstDay.dt_txt;
 
-        // FIRST DAY TEMP
-        const dayTemp = (firstDay.main.temp - 273.15);
-        const temp = (Math.round(dayTemp * 100) / 100);
+      // FIRST DAY TEMP
+      const dayTemp = (firstDay.main.temp - 273.15);
+      const temp = (Math.round(dayTemp * 100) / 100);
 
+
+
+
+
+
+      // MAP
+
+
+      const location = {lat: `${countryLat}`, lng: `${countryLon}`};
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: location,
+        styles: []
+      });
+
+      var marker = new google.maps.Marker({
+        position: location,
+        map: map
+      });
+
+
+
+
+      // FUSIONCHART
 
       FusionCharts.ready(function () {
         var visitChart = new FusionCharts({
             type: 'line',
             renderAt: 'chart-swipe',
-            width: '375',
+            width: '335',
             height: '250',
             dataFormat: 'json',
             dataSource: {
@@ -121,17 +151,19 @@ button.addEventListener("click", (event) => {
 
         visitChart.render();
 
+        // SWIPER
+
         var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        slidesPerView: 1,
-        paginationClickable: true,
-        spaceBetween: 30,
-        keyboardControl: true,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        loop: false,
-        stopOnLast: true,
-    });
+          pagination: '.swiper-pagination',
+          slidesPerView: 1,
+          paginationClickable: true,
+          spaceBetween: 30,
+          keyboardControl: true,
+          nextButton: '.swiper-button-next',
+          prevButton: '.swiper-button-prev',
+          loop: false,
+          stopOnLast: true,
+      });
     });
   });
 });
