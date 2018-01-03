@@ -21,9 +21,28 @@ button.addEventListener("click", (event) => {
 
 
 
+      const results = {lat: countryLat, lng: countryLon};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: results,
+        styles: []
+      });
+
+      var marker = new google.maps.Marker({
+          position: results,
+          map: map
+        });
 
 
-        // TODAY'S DATE
+
+
+
+
+
+
+
+      // TODAY'S DATE
       const today = new Date();
       const gmt = today.toUTCString();
 
@@ -41,29 +60,6 @@ button.addEventListener("click", (event) => {
       // FIRST DAY TEMP
       const dayTemp = (firstDay.main.temp - 273.15);
       const temp = (Math.round(dayTemp * 100) / 100);
-
-
-
-
-
-
-      // MAP
-
-
-      const location = {lat: `${countryLat}`, lng: `${countryLon}`};
-
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 8,
-        center: location,
-        styles: []
-      });
-
-      var marker = new google.maps.Marker({
-        position: location,
-        map: map
-      });
-
-
 
 
       // FUSIONCHART
