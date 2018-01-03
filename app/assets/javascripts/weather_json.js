@@ -17,9 +17,8 @@ button.addEventListener("click", (event) => {
       const countryLat = data.city.coord.lat;
       const countryLon = data.city.coord.lon;
 
+      // INFO SWIPE / MAPS
       infoSwipe.insertAdjacentHTML('afterbegin', `<div class="card">${name}</div>`);
-
-
 
       const results = {lat: countryLat, lng: countryLon};
 
@@ -33,12 +32,6 @@ button.addEventListener("click", (event) => {
           position: results,
           map: map
         });
-
-
-
-
-
-
 
 
 
@@ -62,8 +55,8 @@ button.addEventListener("click", (event) => {
       const temp = (Math.round(dayTemp * 100) / 100);
 
 
-      // FUSIONCHART
 
+      // FUSIONCHART
       FusionCharts.ready(function () {
         var visitChart = new FusionCharts({
             type: 'line',
