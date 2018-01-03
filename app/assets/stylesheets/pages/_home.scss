@@ -9,21 +9,22 @@
   list-style: none;
 }
 
-// #weather-container {
-//   height: auto;
-//   width: 100%;
-//   text-align: center;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   flex-direction: column;
-//   margin-top: 30px;
-// }
-
-#card {
-  width: 850px;
-  height: 500px;
+.card {
+  width: 375px;
+  height: 250px;
   background-color: #d1d1d1;
+  color: black;
+  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 18px;
+  margin: 20px 0px;
+}
+
+#chart-swipe, #info-swipe {
+  width: 375px;
+  height: 250px;
   color: black;
   text-align: center;
   display: flex;
@@ -40,4 +41,9 @@
 #chart-container {
   width: 90%;
   text-align: center;
+}
+
+.swiper-container {
+  text-align: center;
+  margin: 20px 30px;
 }

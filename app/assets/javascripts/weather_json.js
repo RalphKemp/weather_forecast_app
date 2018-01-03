@@ -2,6 +2,10 @@ const button = document.getElementById('button');
 const search = document.getElementById('search');
 const weatherContainer = document.getElementById('weather-container');
 const results = document.getElementById('results');
+const cardContainer = document.getElementById('card-container');
+const chartSwipe = document.getElementById('chart-swipe');
+const infoSwipe = document.getElementById('info-swipe');
+
 
 
 button.addEventListener("click", (event) => {
@@ -10,6 +14,8 @@ button.addEventListener("click", (event) => {
     .then((data) => {
       const name = data.city.name;
       const country = data.city.country;
+
+      infoSwipe.insertAdjacentHTML('afterbegin', `<div class="card">${name}</div>`);
 
 
         // TODAY'S DATE
@@ -35,7 +41,7 @@ button.addEventListener("click", (event) => {
       FusionCharts.ready(function () {
         var visitChart = new FusionCharts({
             type: 'line',
-            renderAt: 'chart-container',
+            renderAt: 'chart-swipe',
             width: '375',
             height: '250',
             dataFormat: 'json',
@@ -82,14 +88,18 @@ button.addEventListener("click", (event) => {
                     },
                     {
                         "label": "`${dayThree}`",
-                        "value": "54",
+                        "value": "22",
                     },
                     {
                         "label": "`${dayFour}`",
-                        "value": "91"
+                        "value": "33"
                     },
                     {
                         "label": "`${dayFive}`",
+                        "value": "15"
+                    },
+                    {
+                        "label": "`${daysix}`",
                         "value": "15"
                     }
                 ],
@@ -110,6 +120,18 @@ button.addEventListener("click", (event) => {
         });
 
         visitChart.render();
+
+        var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 1,
+        paginationClickable: true,
+        spaceBetween: 30,
+        keyboardControl: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        loop: false,
+        stopOnLast: true,
+    });
     });
   });
 });
