@@ -2,6 +2,7 @@ const button = document.getElementById('button');
 const search = document.getElementById('search');
 const weatherContainer = document.getElementById('weather-container');
 const results = document.getElementById('results');
+const cardContainer = document.getElementById('card-container');
 
 
 button.addEventListener("click", (event) => {
@@ -10,6 +11,10 @@ button.addEventListener("click", (event) => {
     .then((data) => {
       const name = data.city.name;
       const country = data.city.country;
+
+      cardContainer.insertAdjacentHTML('afterbegin', `<div class="card">${name}</div>`);
+
+
 
 
         // TODAY'S DATE
@@ -82,14 +87,18 @@ button.addEventListener("click", (event) => {
                     },
                     {
                         "label": "`${dayThree}`",
-                        "value": "54",
+                        "value": "22",
                     },
                     {
                         "label": "`${dayFour}`",
-                        "value": "91"
+                        "value": "33"
                     },
                     {
                         "label": "`${dayFive}`",
+                        "value": "15"
+                    },
+                    {
+                        "label": "`${daysix}`",
                         "value": "15"
                     }
                 ],
