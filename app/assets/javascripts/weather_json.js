@@ -3,6 +3,9 @@ const search = document.getElementById('search');
 const weatherContainer = document.getElementById('weather-container');
 const results = document.getElementById('results');
 const cardContainer = document.getElementById('card-container');
+const chartSwipe = document.getElementById('chart-swipe');
+const infoSwipe = document.getElementById('info-swipe');
+
 
 
 button.addEventListener("click", (event) => {
@@ -12,9 +15,7 @@ button.addEventListener("click", (event) => {
       const name = data.city.name;
       const country = data.city.country;
 
-      cardContainer.insertAdjacentHTML('afterbegin', `<div class="card">${name}</div>`);
-
-
+      infoSwipe.insertAdjacentHTML('afterbegin', `<div class="card">${name}</div>`);
 
 
         // TODAY'S DATE
@@ -40,7 +41,7 @@ button.addEventListener("click", (event) => {
       FusionCharts.ready(function () {
         var visitChart = new FusionCharts({
             type: 'line',
-            renderAt: 'chart-container',
+            renderAt: 'chart-swipe',
             width: '375',
             height: '250',
             dataFormat: 'json',
