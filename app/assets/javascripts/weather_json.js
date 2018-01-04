@@ -5,10 +5,17 @@ const results = document.getElementById('results');
 const cardContainer = document.getElementById('card-container');
 const chartSwipe = document.getElementById('chart-swipe');
 const infoSwipe = document.getElementById('info-swipe');
+const map = document.getElementById('map');
+const logoAndForm = document.querySelector('.logo-and-form');
+const slogan = document.querySelector('.slogan');
 
 
 
 button.addEventListener("click", (event) => {
+  infoSwipe.innerHTML = "";
+  map.innerHTML = "";
+  logoAndForm.classList.remove('top-margin');
+  slogan.classList.add('slogan-remove');
   fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`)
     .then(response => response.json())
     .then((data) => {
@@ -17,8 +24,45 @@ button.addEventListener("click", (event) => {
       const countryLat = data.city.coord.lat;
       const countryLon = data.city.coord.lon;
 
+
+
+      // LOGIC
+
+      // NAME OF DAY
+      const firstDay = data.list[0];
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      var dayDay = function(date) {
+        const tmp = new Date(date);
+        return days[tmp.getDay()];
+      };
+
+
+      // FIRST DAY TEMP
+      const dayTemp = (firstDay.main.temp - 273.15);
+      const temp = (Math.round(dayTemp * 100) / 100);
+
+
+      // Today's date
+      var date = new Date();
+      var today = "";
+         today += date.getDate() + "/";
+         today += (date.getMonth() + 1) + "/";
+         today += date.getFullYear();
+      console.log(today);
+
+
+
+
+
+
+
+      // HTML INSERTION
       // INFO SWIPE / MAPS
-      infoSwipe.insertAdjacentHTML('afterbegin', `<div class="card">${name}</div>`);
+      infoSwipe.insertAdjacentHTML('afterbegin',
+        `<div class="card">
+        <div class="card-title">${name}</div>
+        <div class="card-main-gmt">${today}</div>
+        </div>`);
 
       const results = {lat: countryLat, lng: countryLon};
 
@@ -32,29 +76,6 @@ button.addEventListener("click", (event) => {
           position: results,
           map: map
         });
-
-
-
-      // TODAY'S DATE
-      const today = new Date();
-      const gmt = today.toUTCString();
-
-      // NAME OF DAY
-      const firstDay = data.list[0];
-      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-      var dayDay = function(date) {
-        const tmp = new Date(date);
-        return days[tmp.getDay()];
-      };
-
-      // GMT
-      const hello = firstDay.dt_txt;
-
-      // FIRST DAY TEMP
-      const dayTemp = (firstDay.main.temp - 273.15);
-      const temp = (Math.round(dayTemp * 100) / 100);
-
-
 
       // FUSIONCHART
       FusionCharts.ready(function () {

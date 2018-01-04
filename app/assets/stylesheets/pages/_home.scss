@@ -1,6 +1,6 @@
 body {
   position: relative;
-  background: linear-gradient(#cfd9df, #e2ebf0);
+  background: linear-gradient(#fff1eb, #aed5e8);
   background-size: cover;
   height: 100%;
   margin: 0;
@@ -13,6 +13,31 @@ body {
   & span {
     color: grey;
   }
+}
+
+.slogan {
+  font-size: 14px;
+  text-align: center;
+  & p {
+    margin-top: -11px;
+    margin-bottom: 15px;
+  }
+}
+
+.slogan-remove {
+  display: none;
+}
+
+.fa-search {
+  font-size: 20px;
+}
+
+.main-container {
+  height: 100vh;
+}
+
+.top-margin {
+  margin-top: 38vh;
 }
 
 .form-container {
