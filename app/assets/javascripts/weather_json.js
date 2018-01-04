@@ -20,8 +20,48 @@ button.addEventListener("click", (event) => {
       const countryLat = data.city.coord.lat;
       const countryLon = data.city.coord.lon;
 
+
+
+      // LOGIC
+
+
+
+      // NAME OF DAY
+      const firstDay = data.list[0];
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      var dayDay = function(date) {
+        const tmp = new Date(date);
+        return days[tmp.getDay()];
+      };
+
+
+      // FIRST DAY TEMP
+      const dayTemp = (firstDay.main.temp - 273.15);
+      const temp = (Math.round(dayTemp * 100) / 100);
+
+
+      // Today's date
+      var date = new Date();
+      var today = "";
+         today += date.getDate() + "/";
+         today += (date.getMonth() + 1) + "/";
+         today += date.getFullYear();
+      console.log(today);
+
+
+
+
+
+
+
+
       // INFO SWIPE / MAPS
-      infoSwipe.insertAdjacentHTML('afterbegin', `<div class="card">${name}</div>`);
+      infoSwipe.insertAdjacentHTML('afterbegin',
+        `<div class="card">
+        <div class="card-title">${name}</div>
+        <div class="card-main-gmt">${today}</div>
+        </div>`);
+
       const results = {lat: countryLat, lng: countryLon};
 
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -36,25 +76,6 @@ button.addEventListener("click", (event) => {
         });
 
 
-
-      // TODAY'S DATE
-      const today = new Date();
-      const gmt = today.toUTCString();
-
-      // NAME OF DAY
-      const firstDay = data.list[0];
-      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-      var dayDay = function(date) {
-        const tmp = new Date(date);
-        return days[tmp.getDay()];
-      };
-
-      // GMT
-      const hello = firstDay.dt_txt;
-
-      // FIRST DAY TEMP
-      const dayTemp = (firstDay.main.temp - 273.15);
-      const temp = (Math.round(dayTemp * 100) / 100);
 
 
 
