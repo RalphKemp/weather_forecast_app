@@ -5,10 +5,13 @@ const results = document.getElementById('results');
 const cardContainer = document.getElementById('card-container');
 const chartSwipe = document.getElementById('chart-swipe');
 const infoSwipe = document.getElementById('info-swipe');
+const map = document.getElementById('map');
 
 
 
 button.addEventListener("click", (event) => {
+  infoSwipe.innerHTML = "";
+  map.innerHTML = "";
   fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`)
     .then(response => response.json())
     .then((data) => {
@@ -19,7 +22,6 @@ button.addEventListener("click", (event) => {
 
       // INFO SWIPE / MAPS
       infoSwipe.insertAdjacentHTML('afterbegin', `<div class="card">${name}</div>`);
-
       const results = {lat: countryLat, lng: countryLon};
 
         var map = new google.maps.Map(document.getElementById('map'), {
