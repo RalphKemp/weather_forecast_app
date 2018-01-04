@@ -7,6 +7,7 @@ const chartSwipe = document.getElementById('chart-swipe');
 const infoSwipe = document.getElementById('info-swipe');
 const map = document.getElementById('map');
 const logoAndForm = document.querySelector('.logo-and-form');
+const slogan = document.querySelector('.slogan');
 
 
 
@@ -14,6 +15,7 @@ button.addEventListener("click", (event) => {
   infoSwipe.innerHTML = "";
   map.innerHTML = "";
   logoAndForm.classList.remove('top-margin');
+  slogan.classList.add('slogan-remove');
   fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`)
     .then(response => response.json())
     .then((data) => {
