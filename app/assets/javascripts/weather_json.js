@@ -62,7 +62,7 @@ button.addEventListener("click", (event) => {
             type: 'line',
             renderAt: 'chart-swipe',
             width: '335',
-            height: '250',
+            height: '220',
             dataFormat: 'json',
             dataSource: {
                 "chart": {
