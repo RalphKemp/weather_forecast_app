@@ -1,6 +1,21 @@
+body {
+  position: relative;
+  background: linear-gradient(#cfd9df, #e2ebf0);
+  background-size: cover;
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .logo {
   text-align: center;
+  & span {
+    color: grey;
+  }
 }
+
+
 .form-container {
   text-align: center;
 }
