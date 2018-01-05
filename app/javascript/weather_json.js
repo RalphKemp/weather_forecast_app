@@ -9,6 +9,10 @@ const map = document.getElementById('map');
 const logoAndForm = document.querySelector('.logo-and-form');
 const slogan = document.querySelector('.slogan');
 
+function kelvinToDegrees(kelv) {
+  const temperature =(kelv - 273.15);
+  return (Math.round(temperature * 100) / 100);
+}
 
 button.addEventListener("click", (event) => {
   infoSwipe.innerHTML = "";
@@ -16,25 +20,28 @@ button.addEventListener("click", (event) => {
   logoAndForm.classList.remove('top-margin');
   slogan.classList.add('slogan-remove');
 
-  const urls = [`http://api.openweathermap.org/data/2.5/weather?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`,
-  `http://api.openweathermap.org/data/2.5/forecast?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`];
+  const urls = [`https://api.openweathermap.org/data/2.5/weather?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`,
+  `https://api.openweathermap.org/data/2.5/forecast?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`];
 
   fetch(urls[0])
     .then(response => response.json())
     .then((data) => {
       const name = data.name;
-      const country = data.sys.country;
       const desc = data.weather[0].description;
+      const icon = data.weather[0].icon;
+      const iconToUse = `http://openweathermap.org/img/w/${icon}.png`;
       const countryLat = data.coord.lat;
       const countryLon = data.coord.lon;
       const results = {lat: countryLat, lng: countryLon};
-
+      const currentTemp = kelvinToDegrees(data.main.temp);
 
       infoSwipe.insertAdjacentHTML('afterbegin',
         `<div class="card">
-        <div class="card-title">${name}</div>
-        <div class="card-main-gmt">${country}</div>
-        <div class="card-main-desc">${desc}</div>
+          <div class="card-content">
+            <div class="card-title"><b>${name}</b></div>
+            <span><div class="card-desc">${desc}&nbsp<img src="${iconToUse}" alt="icon"></div></span>
+            <div class="card-current-temp">${currentTemp}°C</div>
+          </div>
         </div>`);
 
       var map = new google.maps.Map(document.getElementById('map'), {
