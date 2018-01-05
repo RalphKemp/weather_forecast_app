@@ -55,7 +55,7 @@ body {
 .card {
   width: 375px;
   height: 220px;
-  background-color: #d1d1d1;
+  background-color: rgba(214,214,214,0.3) ;
   color: black;
   text-align: center;
   display: flex;
@@ -64,6 +64,28 @@ body {
   font-size: 18px;
   margin: 10px 0px;
 }
+
+.card-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card-title {
+  text-align: center;
+  font-size: 28px;
+}
+
+.card-desc {
+  font-size: 20px;
+}
+
+.card-current-temp {
+  font-size: 18px;
+}
+
 
 #chart-swipe, #info-swipe {
   width: 375px;

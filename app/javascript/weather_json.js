@@ -38,11 +38,13 @@ button.addEventListener("click", (event) => {
 
       infoSwipe.insertAdjacentHTML('afterbegin',
         `<div class="card">
-        <div class="card-title">${name}</div>
-        <div class="card-main-gmt">${country}</div>
-        <div class="card-main-desc">${desc}</div>
-        <div class="card-main-desc">${currentTemp}</div>
-        <div class="card-main-icon"><img src="${iconToUse}" alt="icon"></div>
+          <div class="card-content">
+            <div class="card-title"><b>${name}</b></div>
+            <div class="card-country">${country}</div>
+            <div class="card-desc">${desc}</div>
+            <div class="card-current-temp">${currentTemp}</div>
+            <div class="card-main-icon"><img src="${iconToUse}" alt="icon"></div>
+          </div>
         </div>`);
 
       var map = new google.maps.Map(document.getElementById('map'), {
