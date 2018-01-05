@@ -9,6 +9,10 @@ const map = document.getElementById('map');
 const logoAndForm = document.querySelector('.logo-and-form');
 const slogan = document.querySelector('.slogan');
 
+function kelvinToDegrees(kelv) {
+  const temperature =(kelv - 273.15);
+  return (Math.round(temperature * 100) / 100);
+}
 
 button.addEventListener("click", (event) => {
   infoSwipe.innerHTML = "";
@@ -30,12 +34,14 @@ button.addEventListener("click", (event) => {
       const countryLat = data.coord.lat;
       const countryLon = data.coord.lon;
       const results = {lat: countryLat, lng: countryLon};
+      const currentTemp = kelvinToDegrees(data.main.temp);
 
       infoSwipe.insertAdjacentHTML('afterbegin',
         `<div class="card">
         <div class="card-title">${name}</div>
         <div class="card-main-gmt">${country}</div>
         <div class="card-main-desc">${desc}</div>
+        <div class="card-main-desc">${currentTemp}</div>
         <div class="card-main-icon"><img src="${iconToUse}" alt="icon"></div>
         </div>`);
 
