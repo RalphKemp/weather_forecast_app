@@ -92,10 +92,14 @@ body {
   margin: 0px 20px;
 }
 
-.card, #raphael-paper-0, #info-swipe, .map-container, #map {
+.card, #info-swipe, .map-container, #map {
   border-radius: 10px !important;
   // raphael-paper-0 is being used for the shape of the chart, all i could find on chrome
   // to successfully change the border radius
+}
+
+.fusioncharts-container svg {
+  border-radius: 10px !important;
 }
 
 #search {
