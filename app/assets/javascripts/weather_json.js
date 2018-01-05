@@ -24,14 +24,17 @@ button.addEventListener("click", (event) => {
     .then((data) => {
       const name = data.name;
       const country = data.sys.country;
+      const desc = data.weather[0].description;
       const countryLat = data.coord.lat;
       const countryLon = data.coord.lon;
       const results = {lat: countryLat, lng: countryLon};
+
 
       infoSwipe.insertAdjacentHTML('afterbegin',
         `<div class="card">
         <div class="card-title">${name}</div>
         <div class="card-main-gmt">${country}</div>
+        <div class="card-main-desc">${desc}</div>
         </div>`);
 
       var map = new google.maps.Map(document.getElementById('map'), {
