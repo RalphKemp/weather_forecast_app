@@ -27,7 +27,6 @@ button.addEventListener("click", (event) => {
     .then(response => response.json())
     .then((data) => {
       const name = data.name;
-      const country = data.sys.country;
       const desc = data.weather[0].description;
       const icon = data.weather[0].icon;
       const iconToUse = `http://openweathermap.org/img/w/${icon}.png`;
@@ -40,10 +39,8 @@ button.addEventListener("click", (event) => {
         `<div class="card">
           <div class="card-content">
             <div class="card-title"><b>${name}</b></div>
-            <div class="card-country">${country}</div>
-            <div class="card-desc">${desc}</div>
-            <div class="card-current-temp">${currentTemp}</div>
-            <div class="card-main-icon"><img src="${iconToUse}" alt="icon"></div>
+            <span><div class="card-desc">${desc}&nbsp<img src="${iconToUse}" alt="icon"></div></span>
+            <div class="card-current-temp">${currentTemp}°C</div>
           </div>
         </div>`);
 
