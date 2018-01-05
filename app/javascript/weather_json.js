@@ -16,8 +16,8 @@ button.addEventListener("click", (event) => {
   logoAndForm.classList.remove('top-margin');
   slogan.classList.add('slogan-remove');
 
-  const urls = [`http://api.openweathermap.org/data/2.5/weather?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`,
-  `http://api.openweathermap.org/data/2.5/forecast?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`];
+  const urls = [`https://api.openweathermap.org/data/2.5/weather?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`,
+  `https://api.openweathermap.org/data/2.5/forecast?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`];
 
   fetch(urls[0])
     .then(response => response.json())
