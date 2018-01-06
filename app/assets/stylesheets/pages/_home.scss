@@ -1,6 +1,6 @@
 body {
   position: relative;
-  background: linear-gradient(#f4f9fc, #5d6668);
+  background: linear-gradient(#ffa39b, #f9f7f7);
   background-size: cover;
   height: 100%;
   margin: 0;
@@ -86,6 +86,10 @@ body {
   font-size: 50px;
 }
 
+.card-title, .card-desc, .card-current-temp {
+  font-family: $card-font;
+}
+
 
 #chart-swipe, #info-swipe {
   width: 375px;
@@ -138,5 +142,27 @@ body {
   margin-right: 20px !important;
   margin-left: 20px !important;
 }
+
+.swal-footer {
+  text-align: center;
+  padding: 7px;
+}
+
+.swal-text:first-child {
+  margin-top: 25px;
+}
+
+@media (max-width: 500px) {
+  .swal-modal {
+    width: calc(100% - 100px);
+  }
+}
+
+
+
+
+
+
+
 
 

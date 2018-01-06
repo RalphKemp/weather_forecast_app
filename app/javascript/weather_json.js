@@ -16,7 +16,7 @@ function kelvinToDegrees(kelv) {
 
 function formValidation() {
   if (search.value == "") {
-    alert("Please enter a city name");
+    swal("Please enter a city name");
     exit();
   }
 }
@@ -172,13 +172,6 @@ const hello = (event) => {
   };
 
 button.addEventListener("click", hello);
-
-
-
-
-
-
-
 
 
 
