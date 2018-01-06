@@ -1,7 +1,7 @@
 const button = document.getElementById('button');
+const results = document.getElementById('results');
 const search = document.getElementById('search');
 const weatherContainer = document.getElementById('weather-container');
-const results = document.getElementById('results');
 const cardContainer = document.getElementById('card-container');
 const chartSwipe = document.getElementById('chart-swipe');
 const infoSwipe = document.getElementById('info-swipe');
@@ -9,16 +9,26 @@ const map = document.getElementById('map');
 const logoAndForm = document.querySelector('.logo-and-form');
 const slogan = document.querySelector('.slogan');
 
+
 function kelvinToDegrees(kelv) {
   const temperature =(kelv - 273.15);
   return (Math.round(temperature * 100) / 100);
 }
 
-button.addEventListener("click", (event) => {
-  infoSwipe.innerHTML = "";
-  map.innerHTML = "";
-  logoAndForm.classList.remove('top-margin');
-  slogan.classList.add('slogan-remove');
+function formValidation() {
+  if (search.value == "") {
+    swal("Please enter a real city name");
+    exit();
+  } else {
+    infoSwipe.innerHTML = "";
+    map.innerHTML = "";
+    logoAndForm.classList.remove('top-margin');
+    slogan.classList.add('slogan-remove');
+  }
+}
+
+
+const hello = (event) => {
 
   const urls = [`https://api.openweathermap.org/data/2.5/weather?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`,
   `https://api.openweathermap.org/data/2.5/forecast?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`];
@@ -26,14 +36,20 @@ button.addEventListener("click", (event) => {
   fetch(urls[0])
     .then(response => response.json())
     .then((data) => {
+      if (data.cod == 404) {
+        swal("Please enter a city name");
+        exit();
+      }
+      formValidation();
       const name = data.name;
       const desc = data.weather[0].description;
       const icon = data.weather[0].icon;
       const iconToUse = `http://openweathermap.org/img/w/${icon}.png`;
       const countryLat = data.coord.lat;
       const countryLon = data.coord.lon;
-      const results = {lat: countryLat, lng: countryLon};
+      const latLon = {lat: countryLat, lng: countryLon};
       const currentTemp = kelvinToDegrees(data.main.temp);
+
 
       infoSwipe.insertAdjacentHTML('afterbegin',
         `<div class="card">
@@ -46,12 +62,12 @@ button.addEventListener("click", (event) => {
 
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 8,
-        center: results,
+        center: latLon,
         styles: []
       });
 
       var marker = new google.maps.Marker({
-        position: results,
+        position: latLon,
         map: map
       });
     });
@@ -161,5 +177,6 @@ button.addEventListener("click", (event) => {
         stopOnLast: true
       });
     });
-  });
+  };
 
+button.addEventListener("click", hello);
