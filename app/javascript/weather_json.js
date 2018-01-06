@@ -9,17 +9,19 @@ const map = document.getElementById('map');
 const logoAndForm = document.querySelector('.logo-and-form');
 const slogan = document.querySelector('.slogan');
 
+
 function kelvinToDegrees(kelv) {
   const temperature =(kelv - 273.15);
   return (Math.round(temperature * 100) / 100);
 }
 
 function formValidation() {
-  if (search.value == "" || (search.value == "hi")) {
+  if (search.value == "") {
     swal("Please enter a city name");
     exit();
   }
 }
+
 
 const hello = (event) => {
   formValidation();
@@ -34,6 +36,7 @@ const hello = (event) => {
   fetch(urls[0])
     .then(response => response.json())
     .then((data) => {
+
       const name = data.name;
       const desc = data.weather[0].description;
       const icon = data.weather[0].icon;
@@ -42,6 +45,8 @@ const hello = (event) => {
       const countryLon = data.coord.lon;
       const latLon = {lat: countryLat, lng: countryLon};
       const currentTemp = kelvinToDegrees(data.main.temp);
+      const cod = data.cod;
+      console.log(cod);
 
       infoSwipe.insertAdjacentHTML('afterbegin',
         `<div class="card">
@@ -172,12 +177,3 @@ const hello = (event) => {
   };
 
 button.addEventListener("click", hello);
-
-
-
-
-
-
-
-
-
