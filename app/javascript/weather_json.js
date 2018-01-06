@@ -28,9 +28,7 @@ function formValidation() {
 }
 
 
-
 const hello = (event) => {
-
 
   const urls = [`https://api.openweathermap.org/data/2.5/weather?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`,
   `https://api.openweathermap.org/data/2.5/forecast?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`];
