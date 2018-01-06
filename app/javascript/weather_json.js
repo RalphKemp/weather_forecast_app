@@ -1,7 +1,7 @@
 const button = document.getElementById('button');
+const results = document.getElementById('results');
 const search = document.getElementById('search');
 const weatherContainer = document.getElementById('weather-container');
-const results = document.getElementById('results');
 const cardContainer = document.getElementById('card-container');
 const chartSwipe = document.getElementById('chart-swipe');
 const infoSwipe = document.getElementById('info-swipe');
@@ -14,7 +14,15 @@ function kelvinToDegrees(kelv) {
   return (Math.round(temperature * 100) / 100);
 }
 
-button.addEventListener("click", (event) => {
+function formValidation() {
+  if (search.value == "") {
+    alert("Please enter a city name");
+    exit();
+  }
+}
+
+const hello = (event) => {
+  formValidation();
   infoSwipe.innerHTML = "";
   map.innerHTML = "";
   logoAndForm.classList.remove('top-margin');
@@ -32,7 +40,7 @@ button.addEventListener("click", (event) => {
       const iconToUse = `http://openweathermap.org/img/w/${icon}.png`;
       const countryLat = data.coord.lat;
       const countryLon = data.coord.lon;
-      const results = {lat: countryLat, lng: countryLon};
+      const latLon = {lat: countryLat, lng: countryLon};
       const currentTemp = kelvinToDegrees(data.main.temp);
 
       infoSwipe.insertAdjacentHTML('afterbegin',
@@ -46,12 +54,12 @@ button.addEventListener("click", (event) => {
 
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 8,
-        center: results,
+        center: latLon,
         styles: []
       });
 
       var marker = new google.maps.Marker({
-        position: results,
+        position: latLon,
         map: map
       });
     });
@@ -161,5 +169,22 @@ button.addEventListener("click", (event) => {
         stopOnLast: true
       });
     });
-  });
+  };
+
+button.addEventListener("click", hello);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
