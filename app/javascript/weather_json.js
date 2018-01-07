@@ -8,6 +8,7 @@ const infoSwipe = document.getElementById('info-swipe');
 const map = document.getElementById('map');
 const logoAndForm = document.querySelector('.logo-and-form');
 const slogan = document.querySelector('.slogan');
+const logo = document.querySelector('.logo');
 
 function kelvinToDegrees(kelv) {
   const temperature =(kelv - 273.15);
@@ -26,6 +27,7 @@ function buildPage() {
   map.innerHTML = "";
   logoAndForm.classList.remove('top-margin');
   slogan.classList.add('slogan-remove');
+  logo.classList.add('logo-size-change');
 }
 
 const hello = (event) => {
