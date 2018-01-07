@@ -17,19 +17,20 @@ function kelvinToDegrees(kelv) {
 
 function formValidation() {
   if (search.value == "") {
-    swal("Please enter a real city name");
+    swal("Please enter a city name");
     exit();
-  } else {
-    infoSwipe.innerHTML = "";
-    map.innerHTML = "";
-    logoAndForm.classList.remove('top-margin');
-    slogan.classList.add('slogan-remove');
   }
 }
 
+function buildPage() {
+  infoSwipe.innerHTML = "";
+  map.innerHTML = "";
+  logoAndForm.classList.remove('top-margin');
+  slogan.classList.add('slogan-remove');
+}
 
 const hello = (event) => {
-
+formValidation();
   const urls = [`https://api.openweathermap.org/data/2.5/weather?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`,
   `https://api.openweathermap.org/data/2.5/forecast?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`];
 
@@ -37,10 +38,10 @@ const hello = (event) => {
     .then(response => response.json())
     .then((data) => {
       if (data.cod == 404) {
-        swal("Please enter a city name");
-        exit();
+        swal("Please enter valid city");
+        return false;
       }
-      formValidation();
+      buildPage();
       const name = data.name;
       const desc = data.weather[0].description;
       const icon = data.weather[0].icon;
@@ -76,6 +77,9 @@ const hello = (event) => {
   fetch(urls[1])
       .then(response => response.json())
       .then((data) => {
+        if (data.cod == 404) {
+        return false;
+      }
         const name = data.city.name;
         const country = data.city.country;
 
