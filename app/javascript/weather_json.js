@@ -8,6 +8,7 @@ const infoSwipe = document.getElementById('info-swipe');
 const map = document.getElementById('map');
 const logoAndForm = document.querySelector('.logo-and-form');
 const slogan = document.querySelector('.slogan');
+const main = document.getElementsByTagName("body")[0];
 
 
 function kelvinToDegrees(kelv) {
@@ -21,6 +22,10 @@ function formValidation() {
     return false;
   }
 }
+
+// function changeColor() {
+//   main.classList.add("new-color");
+// }
 
 function buildPage() {
   infoSwipe.innerHTML = "";
@@ -51,6 +56,7 @@ formValidation();
       const latLon = {lat: countryLat, lng: countryLon};
       const currentTemp = kelvinToDegrees(data.main.temp);
 
+      // changeColor();
 
       infoSwipe.insertAdjacentHTML('afterbegin',
         `<div class="card">
@@ -89,7 +95,7 @@ formValidation();
               type: 'line',
               renderAt: 'chart-swipe',
               width: '335',
-              height: '220',
+              height: '200',
               dataFormat: 'json',
               dataSource: {
                   "chart": {
