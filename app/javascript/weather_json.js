@@ -8,6 +8,7 @@ const infoSwipe = document.getElementById('info-swipe');
 const map = document.getElementById('map');
 const logoAndForm = document.querySelector('.logo-and-form');
 const slogan = document.querySelector('.slogan');
+const main = document.getElementsByTagName("body")[0];
 
 
 function kelvinToDegrees(kelv) {
@@ -17,19 +18,24 @@ function kelvinToDegrees(kelv) {
 
 function formValidation() {
   if (search.value == "") {
-    swal("Please enter a real city name");
-    exit();
-  } else {
-    infoSwipe.innerHTML = "";
-    map.innerHTML = "";
-    logoAndForm.classList.remove('top-margin');
-    slogan.classList.add('slogan-remove');
+    swal("Please enter a city name");
+    return false;
   }
 }
 
+// function changeColor() {
+//   main.classList.add("new-color");
+// }
+
+function buildPage() {
+  infoSwipe.innerHTML = "";
+  map.innerHTML = "";
+  logoAndForm.classList.remove('top-margin');
+  slogan.classList.add('slogan-remove');
+}
 
 const hello = (event) => {
-
+formValidation();
   const urls = [`https://api.openweathermap.org/data/2.5/weather?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`,
   `https://api.openweathermap.org/data/2.5/forecast?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`];
 
@@ -37,10 +43,10 @@ const hello = (event) => {
     .then(response => response.json())
     .then((data) => {
       if (data.cod == 404) {
-        swal("Please enter a city name");
-        exit();
+        swal("Please enter valid city");
+        return false;
       }
-      formValidation();
+      buildPage();
       const name = data.name;
       const desc = data.weather[0].description;
       const icon = data.weather[0].icon;
@@ -50,6 +56,7 @@ const hello = (event) => {
       const latLon = {lat: countryLat, lng: countryLon};
       const currentTemp = kelvinToDegrees(data.main.temp);
 
+      // changeColor();
 
       infoSwipe.insertAdjacentHTML('afterbegin',
         `<div class="card">
@@ -76,6 +83,9 @@ const hello = (event) => {
   fetch(urls[1])
       .then(response => response.json())
       .then((data) => {
+        if (data.cod == 404) {
+        return false;
+      }
         const name = data.city.name;
         const country = data.city.country;
 
@@ -85,7 +95,7 @@ const hello = (event) => {
               type: 'line',
               renderAt: 'chart-swipe',
               width: '335',
-              height: '220',
+              height: '200',
               dataFormat: 'json',
               dataSource: {
                   "chart": {

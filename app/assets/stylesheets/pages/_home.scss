@@ -8,6 +8,13 @@ body {
   background-attachment: fixed;
 }
 
+.new-color {
+  background: linear-gradient(#f76659, #f9f7f7) !important;
+  // will need to get rid of images here anyway.
+}
+
+// f76659
+
 .logo {
   text-align: center;
   & span {
@@ -18,6 +25,7 @@ body {
 .slogan {
   font-size: 14px;
   text-align: center;
+  font-weight: bold;
   & p {
     margin-top: -11px;
     margin-bottom: 15px;
@@ -54,7 +62,7 @@ body {
 
 .card {
   width: 375px;
-  height: 220px;
+  height: 200px;
   background-image: linear-gradient(rgba(165,165,165,0.5), rgba(165,165,165,0.2));
   color: black;
   text-align: center;
@@ -68,26 +76,29 @@ body {
 .card-content {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
 }
 
 .card-title {
   text-align: center;
-  font-size: 32px;
+  font-size: 38px;
+  font-weight: extra-light;
 }
 
 .card-desc {
-  font-size: 25px;
+  font-size: 18px;
+  font-weight: extra-light;
 }
 
 .card-current-temp {
-  font-size: 50px;
+  font-size: 60px;
 }
 
 .card-title, .card-desc, .card-current-temp {
   font-family: $card-font;
+  font-weight: lighter;
 }
 
 
