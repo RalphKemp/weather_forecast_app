@@ -8,8 +8,7 @@ const infoSwipe = document.getElementById('info-swipe');
 const map = document.getElementById('map');
 const logoAndForm = document.querySelector('.logo-and-form');
 const slogan = document.querySelector('.slogan');
-const main = document.getElementsByTagName("body")[0];
-
+const logo = document.querySelector('.logo');
 
 function kelvinToDegrees(kelv) {
   const temperature =(kelv - 273.15);
@@ -19,19 +18,16 @@ function kelvinToDegrees(kelv) {
 function formValidation() {
   if (search.value == "") {
     swal("Please enter a city name");
-    return false;
+    exit(); // console says exit is not defined but won't work otherwise??
   }
 }
-
-// function changeColor() {
-//   main.classList.add("new-color");
-// }
 
 function buildPage() {
   infoSwipe.innerHTML = "";
   map.innerHTML = "";
   logoAndForm.classList.remove('top-margin');
   slogan.classList.add('slogan-remove');
+  logo.classList.add('logo-size-change');
 }
 
 const hello = (event) => {
@@ -55,8 +51,6 @@ formValidation();
       const countryLon = data.coord.lon;
       const latLon = {lat: countryLat, lng: countryLon};
       const currentTemp = kelvinToDegrees(data.main.temp);
-
-      // changeColor();
 
       infoSwipe.insertAdjacentHTML('afterbegin',
         `<div class="card">

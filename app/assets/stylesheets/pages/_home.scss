@@ -17,9 +17,16 @@ body {
 
 .logo {
   text-align: center;
+  & h1 {
+    font-size: 46px;
+  }
   & span {
     color: #ffffff;
   }
+}
+
+.logo-size-change h1 {
+  font-size: 38px !important;
 }
 
 .slogan {
@@ -85,6 +92,7 @@ body {
   text-align: center;
   font-size: 38px;
   font-weight: extra-light;
+  margin-top: 5px;
 }
 
 .card-desc {
