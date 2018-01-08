@@ -90,14 +90,20 @@ formValidation();
         const name = data.city.name;
         const country = data.city.country;
         const firstResult = data.list[0];
+        const all = data.list;
+        console.log()
+
+        for(var i in all) {
+          var dt_txt  = all[i].dt_txt;
+          console.log(dt_txt);
+        }
+
 
         function dayName(date) {
           const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
           const day = new Date(date);
           return days[day.getDay()];
         }
-
-        // FUSIONCHART
 
         chartSwipe.insertAdjacentHTML('afterbegin',
         `<div class="card">
