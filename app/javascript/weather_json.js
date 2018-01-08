@@ -55,8 +55,10 @@ formValidation();
       infoSwipe.insertAdjacentHTML('afterbegin',
         `<div class="card">
           <div class="card-content">
-            <div class="card-title"><b>${name}</b></div>
-            <span><div class="card-desc">${desc}&nbsp<img src="${iconToUse}" alt="icon"></div></span>
+            <div class="card-content-flex">
+              <div class="card-title"><b>${name}</b></div>
+              <span><div class="card-desc">${desc}&nbsp<img src="${iconToUse}" alt="icon"></div></span>
+            </div>
             <div class="card-current-temp">${currentTemp}°C</div>
           </div>
         </div>`);
