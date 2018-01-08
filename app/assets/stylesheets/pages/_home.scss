@@ -45,6 +45,7 @@ body {
 
 .fa-search {
   font-size: 20px;
+  margin-left: 5px;
 }
 
 .main-container {
@@ -64,7 +65,12 @@ body {
 }
 
 #button {
-  outline: none;
+  background: none !important;
+  color: inherit;
+  border: none;
+  padding: 0 !important;
+  cursor: pointer;
+  outline: inherit !important;
 }
 
 .card {
@@ -252,9 +258,20 @@ body {
   .card-desc {
     font-size: 30px;
   }
+  .fa-search {
+    font-size: 27px;
+    margin-left: 9px;
+  }
 }
 
-
+@media (min-width: 992px) {
+  .logo-size-change h1 {
+    font-size: 46px !important;
+  }
+  .map-container {
+    margin: 0px 105px;
+  }
+}
 
 
 

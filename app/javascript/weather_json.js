@@ -65,7 +65,7 @@ formValidation();
         </div>`);
 
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 8,
+        zoom: 10,
         center: latLon,
         styles: []
       });
