@@ -5,10 +5,12 @@ const weatherContainer = document.getElementById('weather-container');
 const cardContainer = document.getElementById('card-container');
 const chartSwipe = document.getElementById('chart-swipe');
 const infoSwipe = document.getElementById('info-swipe');
+const testing = document.getElementById('testing');
 const map = document.getElementById('map');
 const logoAndForm = document.querySelector('.logo-and-form');
 const slogan = document.querySelector('.slogan');
 const logo = document.querySelector('.logo');
+
 
 function kelvinToDegrees(kelv) {
   const temperature =(kelv - 273.15);
@@ -55,14 +57,16 @@ formValidation();
       infoSwipe.insertAdjacentHTML('afterbegin',
         `<div class="card">
           <div class="card-content">
-            <div class="card-title"><b>${name}</b></div>
-            <span><div class="card-desc">${desc}&nbsp<img src="${iconToUse}" alt="icon"></div></span>
+            <div class="card-content-flex">
+              <div class="card-title"><b>${name}</b></div>
+              <span><div class="card-desc">${desc}&nbsp<img src="${iconToUse}" alt="icon"></div></span>
+            </div>
             <div class="card-current-temp">${currentTemp}°C</div>
           </div>
         </div>`);
 
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 8,
+        zoom: 10,
         center: latLon,
         styles: []
       });
@@ -88,7 +92,7 @@ formValidation();
           var visitChart = new FusionCharts({
               type: 'line',
               renderAt: 'chart-swipe',
-              width: '335',
+              width: '50%',
               height: '200',
               dataFormat: 'json',
               dataSource: {
