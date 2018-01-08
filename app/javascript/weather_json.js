@@ -7,6 +7,7 @@ const chartSwipe = document.getElementById('chart-swipe');
 const infoSwipe = document.getElementById('info-swipe');
 const testing = document.getElementById('testing');
 const map = document.getElementById('map');
+const mainContent = document.getElementById('main-content');
 const logoAndForm = document.querySelector('.logo-and-form');
 const slogan = document.querySelector('.slogan');
 const logo = document.querySelector('.logo');
@@ -53,6 +54,8 @@ formValidation();
       const countryLon = data.coord.lon;
       const latLon = {lat: countryLat, lng: countryLon};
       const currentTemp = kelvinToDegrees(data.main.temp);
+
+      mainContent.classList.remove('hide');
 
       infoSwipe.insertAdjacentHTML('afterbegin',
         `<div class="card">
