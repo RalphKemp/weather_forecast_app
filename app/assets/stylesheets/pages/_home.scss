@@ -155,6 +155,10 @@ body {
   border-radius: 10px !important;
 }
 
+.fusioncharts-container {
+  width: 100% !important;
+}
+
 #search {
   outline: none;
   width: 50%;
@@ -245,9 +249,12 @@ body {
     font-size: 27px;
     margin-left: 9px;
   }
+   #map {
+    height: 600px;
+  }
 }
 
-@media (min-width: 768) {
+@media (min-width: 768px) {
   .map-container {
     margin: 0px 70px;
   }
@@ -263,7 +270,7 @@ body {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1800px) {
   .map-container {
     margin: 0px 300px;
   }

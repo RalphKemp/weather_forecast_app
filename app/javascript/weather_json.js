@@ -5,6 +5,7 @@ const weatherContainer = document.getElementById('weather-container');
 const cardContainer = document.getElementById('card-container');
 const chartSwipe = document.getElementById('chart-swipe');
 const infoSwipe = document.getElementById('info-swipe');
+const testing = document.getElementById('testing');
 const map = document.getElementById('map');
 const logoAndForm = document.querySelector('.logo-and-form');
 const slogan = document.querySelector('.slogan');
