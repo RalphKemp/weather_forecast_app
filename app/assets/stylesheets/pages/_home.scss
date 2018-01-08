@@ -187,23 +187,6 @@ body {
 
 // desktop
 
-.desktop-map-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin: 0px 20px;
-}
-
-
-
-
-
-
-
-
-
-
-
 
 // responsive
 
@@ -264,15 +247,26 @@ body {
   }
 }
 
-@media (min-width: 992px) {
-  .logo-size-change h1 {
-    font-size: 46px !important;
-  }
+@media (min-width: 768) {
   .map-container {
-    margin: 0px 105px;
+    margin: 0px 70px;
   }
 }
 
 
+@media (min-width: 992px) {
+  .logo-size-change h1 {
+    font-size: 53px !important;
+  }
+  .map-container {
+    margin: 0px 125px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .map-container {
+    margin: 0px 300px;
+  }
+}
 
 
