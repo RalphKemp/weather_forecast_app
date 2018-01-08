@@ -190,4 +190,12 @@ formValidation();
     });
   };
 
+  const enter = (e) => {
+    if (e.keyCode === 13) {
+      hello();
+    }
+  };
+
+window.addEventListener("keyup", enter);
 button.addEventListener("click", hello);
+
