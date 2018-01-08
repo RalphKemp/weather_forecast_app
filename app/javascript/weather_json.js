@@ -196,6 +196,6 @@ formValidation();
     }
   };
 
-window.addEventListener("keyup", enter);
+search.addEventListener("keyup", enter);
 button.addEventListener("click", hello);
 
