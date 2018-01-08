@@ -10,6 +10,7 @@ const logoAndForm = document.querySelector('.logo-and-form');
 const slogan = document.querySelector('.slogan');
 const logo = document.querySelector('.logo');
 
+
 function kelvinToDegrees(kelv) {
   const temperature =(kelv - 273.15);
   return (Math.round(temperature * 100) / 100);
@@ -90,7 +91,7 @@ formValidation();
           var visitChart = new FusionCharts({
               type: 'line',
               renderAt: 'chart-swipe',
-              width: '335',
+              width: '50%',
               height: '200',
               dataFormat: 'json',
               dataSource: {
