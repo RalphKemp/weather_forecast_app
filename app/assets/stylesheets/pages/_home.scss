@@ -1,8 +1,11 @@
+html {
+  height: 100vh;
+}
+
 body {
   position: relative;
   background: linear-gradient(#ffa39b, #f9f7f7);
   background-size: cover;
-  height: 100%;
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -48,10 +51,6 @@ body {
   margin-left: 5px;
 }
 
-.main-container {
-  height: 100vh;
-}
-
 .top-margin {
   margin-top: 38vh;
 }
@@ -83,7 +82,7 @@ body {
   justify-content: flex-start;
   align-items: center;
   font-size: 18px;
-  margin: 10px 0px;
+  margin: 10px 20px;
 }
 
 .card-content {
@@ -171,8 +170,8 @@ body {
 
 .swiper-container {
   text-align: center;
-  margin-right: 20px !important;
-  margin-left: 20px !important;
+  // margin-right: 20px !important;
+  // margin-left: 20px !important;
 }
 
 .swal-footer {
@@ -189,9 +188,6 @@ body {
 }
 
 
-// desktop
-
-
 // responsive
 
 @media (min-width: 376px) {
@@ -201,13 +197,6 @@ body {
 }
 
 @media (min-width: 490px) {
-  .map-container {
-    margin: 0px 50px;
-  }
-  .swiper-container {
-    margin-right: 50px !important;
-    margin-left: 50px !important;
-  }
   .card-content-flex {
     margin-right: -20px;
   }
@@ -217,13 +206,13 @@ body {
   .card-current-temp {
     font-size: 54px;
   }
-
   .card-content {
     flex-direction: row;
   }
   .card-content img {
     font-size: 50px;
   }
+
 }
 
 
@@ -250,13 +239,13 @@ body {
     margin-left: 9px;
   }
    #map {
-    height: 600px;
+    height: 450px;
   }
-}
-
-@media (min-width: 768px) {
   .map-container {
-    margin: 0px 70px;
+    margin: 0px 50px;
+  }
+  .card {
+    margin: 10px 50px !important;
   }
 }
 
@@ -265,14 +254,20 @@ body {
   .logo-size-change h1 {
     font-size: 53px !important;
   }
-  .map-container {
-    margin: 0px 125px;
+}
+
+@media (min-width: 1300px) {
+  .main-container {
+    margin: 0px 250px;
   }
 }
 
 @media (min-width: 1800px) {
   .map-container {
-    margin: 0px 300px;
+    margin: 0px 50px;
+  }
+  .main-container {
+    margin: 0px 350px;
   }
 }
 
