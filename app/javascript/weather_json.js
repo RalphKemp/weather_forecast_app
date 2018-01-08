@@ -95,7 +95,7 @@ formValidation();
           var visitChart = new FusionCharts({
               type: 'line',
               renderAt: 'chart-swipe',
-              width: '50%',
+              width: '90%',
               height: '200',
               dataFormat: 'json',
               dataSource: {
