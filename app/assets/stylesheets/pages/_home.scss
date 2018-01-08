@@ -35,7 +35,7 @@ body {
   font-weight: bold;
   & p {
     margin-top: -11px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
   }
 }
 
@@ -151,6 +151,7 @@ body {
 
 #search {
   outline: none;
+  width: 50%;
 }
 
 #chart-container {
@@ -172,13 +173,6 @@ body {
 .swal-text:first-child {
   margin-top: 25px;
 }
-
-@media (max-width: 500px) {
-  .swal-modal {
-    width: calc(100% - 100px);
-  }
-}
-
 
 @media(min-width: 376px) {
   #map {
@@ -210,9 +204,22 @@ body {
   .card-desc {
     font-size: 32px;
   }
-
+  #search {
+    max-width: 275px;
+  }
 }
 
+@media (min-width: 500px) {
+  .swal-modal {
+    width: calc(100% - 600px);
+  }
+  .logo h1 {
+    font-size: 65px;
+  }
+  .slogan {
+    font-size: 19px;
+  }
+}
 
 
 
