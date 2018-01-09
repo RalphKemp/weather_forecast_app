@@ -100,7 +100,7 @@ formValidation();
         const temps = new Array;
 
         for(const i in all) {
-          const meh = kelvinToDegrees(all[i].main.temp);
+          const meh = all[i].main.temp;
           temps.push(meh);
         }
 
@@ -109,10 +109,6 @@ formValidation();
         let three = temps.splice(0,8);
         let four = temps.splice(0,8);
         let five = temps.splice(0,8);
-
-        console.log(median(one));
-        console.log(median(two));
-
 
         function dayName(date) {
           const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -123,8 +119,12 @@ formValidation();
         chartSwipe.insertAdjacentHTML('afterbegin',
         `<div class="card">
           <div class="card-content">
-            <div>${name}</div>
-            <div>${dayName(firstResult.dt_txt)}</div>
+            <div><p>Next five day forecast (°C) for ${name}</p></div>
+            <div>${kelvinToDegrees(median(one))}</div>
+            <div>${kelvinToDegrees(median(two))}</div>
+            <div>${kelvinToDegrees(median(three))}</div>
+            <div>${kelvinToDegrees(median(four))}</div>
+            <div>${kelvinToDegrees(median(five))}</div>
           </div>
         </div>`);
 
