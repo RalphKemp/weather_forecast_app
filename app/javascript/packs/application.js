@@ -12,3 +12,4 @@
 import swiper from 'swiper';
 import weather_json from 'weather_json';
 import swal from 'sweetalert';
+import Chart from 'chart.js';
