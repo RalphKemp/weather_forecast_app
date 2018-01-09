@@ -11,6 +11,7 @@ const mainContent = document.getElementById('main-content');
 const logoAndForm = document.querySelector('.logo-and-form');
 const slogan = document.querySelector('.slogan');
 const logo = document.querySelector('.logo');
+const fweg = document.getElementById('fweg');
 
 
 function kelvinToDegrees(kelv) {
@@ -116,17 +117,45 @@ formValidation();
           return days[day.getDay()];
         }
 
-        chartSwipe.insertAdjacentHTML('afterbegin',
-        `<div class="card">
-          <div class="card-content">
-            <div><p>Next five day forecast (°C) for ${name}</p></div>
-            <div>${kelvinToDegrees(median(one))}</div>
-            <div>${kelvinToDegrees(median(two))}</div>
-            <div>${kelvinToDegrees(median(three))}</div>
-            <div>${kelvinToDegrees(median(four))}</div>
-            <div>${kelvinToDegrees(median(five))}</div>
-          </div>
-        </div>`);
+        var myChart = new Chart(fweg, {
+          type: 'line',
+          data: {
+              labels: ["•", "•", "•", "•", "•"],
+              datasets: [{
+                  label: '5 day average forecast (°C)',
+                  data: [kelvinToDegrees(median(one)), kelvinToDegrees(median(two)),kelvinToDegrees(median(three)),
+                  kelvinToDegrees(median(four)), kelvinToDegrees(median(five))],
+                  backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)'
+                  ],
+                  borderColor: [
+                      'rgba(255,99,132,1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)'
+                  ],
+                  borderWidth: 3
+              }]
+          },
+            options: {
+              responsive: true,
+
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
 
         // SWIPER
 

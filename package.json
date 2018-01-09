@@ -4,6 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "^3.2.0",
     "amcharts3": "github:amcharts/amcharts3",
+    "chart.js": "^2.7.1",
     "coffeescript": "1.12.7",
     "fusioncharts": "^3.12.2",
     "moment": "^2.20.1",
