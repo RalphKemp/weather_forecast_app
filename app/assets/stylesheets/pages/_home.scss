@@ -16,7 +16,7 @@ body {
   // will need to get rid of images here anyway.
 }
 
-.chartjs-container {
+#chartjs-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -159,7 +159,7 @@ body {
   margin-bottom: 15px;
 }
 
-.card, #info-swipe, .map-container, #map, .chartjs-container {
+.card, #info-swipe, .map-container, #map, #chartjs-container {
   border-radius: 10px !important;
   // raphael-paper-0 is being used for the shape of the chart, all i could find on chrome
   // to successfully change the border radius
