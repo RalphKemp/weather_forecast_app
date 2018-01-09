@@ -119,7 +119,7 @@ formValidation();
           return days[day.getDay()];
         }
 
-        var myChart = new Chart(fweg, {
+        var myChart = new Chart(chartjs, {
           type: 'line',
           data: {
               labels: ["•", "•", "•", "•", "•"],
