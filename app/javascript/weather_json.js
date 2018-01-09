@@ -91,12 +91,14 @@ formValidation();
         const country = data.city.country;
         const firstResult = data.list[0];
         const all = data.list;
-        console.log()
+        const temps = new Array;
 
-        for(var i in all) {
-          var dt_txt  = all[i].dt_txt;
-          console.log(dt_txt);
+        for(const i in all) {
+          const meh = kelvinToDegrees(all[i].main.temp);
+          temps.push(meh);
         }
+
+        console.log(temps);
 
 
         function dayName(date) {
