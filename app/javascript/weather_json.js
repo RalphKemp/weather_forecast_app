@@ -33,6 +33,12 @@ function buildPage() {
   logo.classList.add('logo-size-change');
 }
 
+function median(array) {
+  let sum = array.reduce((previous, current) => current += previous);
+  let avg = sum / array.length;
+  return avg;
+}
+
 const hello = (event) => {
 formValidation();
   const urls = [`https://api.openweathermap.org/data/2.5/weather?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`,
@@ -98,7 +104,22 @@ formValidation();
           temps.push(meh);
         }
 
-        console.log(temps);
+        let one = temps.splice(0,8);
+        let two = temps.splice(0,8);
+        let three = temps.splice(0,8);
+        let four = temps.splice(0,8);
+        let five = temps.splice(0,8);
+
+        console.log(median(one));
+        console.log(median(two));
+
+
+
+
+
+
+
+
 
 
         function dayName(date) {
