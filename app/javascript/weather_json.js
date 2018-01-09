@@ -33,6 +33,12 @@ function buildPage() {
   logo.classList.add('logo-size-change');
 }
 
+function median(array) {
+  let sum = array.reduce((previous, current) => current += previous);
+  let avg = sum / array.length;
+  return avg;
+}
+
 const hello = (event) => {
 formValidation();
   const urls = [`https://api.openweathermap.org/data/2.5/weather?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`,
@@ -89,90 +95,38 @@ formValidation();
       }
         const name = data.city.name;
         const country = data.city.country;
+        const firstResult = data.list[0];
+        const all = data.list;
+        const temps = new Array;
 
-        // FUSIONCHART
-        FusionCharts.ready(function () {
-          var visitChart = new FusionCharts({
-              type: 'line',
-              renderAt: 'chart-swipe',
-              width: '50%',
-              height: '200',
-              dataFormat: 'json',
-              dataSource: {
-                  "chart": {
-                      "caption": `${name}`,
-                      "subCaption": `${country}`,
-                      "xAxisName": "Day",
-                      "yAxisName": "Temp (°C)",
+        for(const i in all) {
+          const meh = kelvinToDegrees(all[i].main.temp);
+          temps.push(meh);
+        }
 
-                      //Cosmetics
-                      "lineThickness" : "4",
-                      "paletteColors" : "#0075c2",
-                      "baseFontColor" : "#333333",
-                      "baseFont" : "Helvetica Neue,Arial",
-                      "captionFontSize" : "14",
-                      "subcaptionFontSize" : "14",
-                      "subcaptionFontBold" : "0",
-                      "showBorder" : "0",
-                      "bgColor" : "#ffffff",
-                      "showShadow" : "0",
-                      "canvasBgColor" : "#ffffff",
-                      "canvasBorderAlpha" : "0",
-                      "divlineAlpha" : "100",
-                      "divlineColor" : "#999999",
-                      "divlineThickness" : "1",
-                      "divLineIsDashed" : "1",
-                      "divLineDashLen" : "1",
-                      "divLineGapLen" : "1",
-                      "showXAxisLine" : "1",
-                      "xAxisLineThickness" : "1",
-                      "xAxisLineColor" : "#999999",
-                      "showAlternateHGridColor" : "0",
+        let one = temps.splice(0,8);
+        let two = temps.splice(0,8);
+        let three = temps.splice(0,8);
+        let four = temps.splice(0,8);
+        let five = temps.splice(0,8);
 
-                  },
-                  "data": [
-                      {
-                          "label": "`${(dayDay(firstDay.dt_txt))}`", // to be changed properly once data is managed
-                          "value": "`${temp}`"
-                      },
-                      {
-                          "label": "`${dayTwo}`",
-                          "value": "14"
-                      },
-                      {
-                          "label": "`${dayThree}`",
-                          "value": "22",
-                      },
-                      {
-                          "label": "`${dayFour}`",
-                          "value": "33"
-                      },
-                      {
-                          "label": "`${dayFive}`",
-                          "value": "15"
-                      },
-                      {
-                          "label": "`${daysix}`",
-                          "value": "15"
-                      }
-                  ],
-                  "trendlines": [
-                      {
-                          "line": [
-                              {
-                                  "startvalue": "10",
-                                  "color": "#1aaf5d",
-                                  "displayvalue": "",
-                                  "valueOnRight" : "1",
-                                  "thickness" : "2"
-                              }
-                          ]
-                      }
-                  ]
-              }
-          });
-          visitChart.render();
-      });
+        console.log(median(one));
+        console.log(median(two));
+
+
+        function dayName(date) {
+          const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+          const day = new Date(date);
+          return days[day.getDay()];
+        }
+
+        chartSwipe.insertAdjacentHTML('afterbegin',
+        `<div class="card">
+          <div class="card-content">
+            <div>${name}</div>
+            <div>${dayName(firstResult.dt_txt)}</div>
+          </div>
+        </div>`);
 
         // SWIPER
 
