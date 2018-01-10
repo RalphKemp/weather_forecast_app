@@ -28,7 +28,8 @@ body {
 }
 
 #chartjs {
-  max-width: 100% !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .logo {
@@ -219,11 +220,9 @@ body {
   }
 }
 
-
-
 @media (min-width: 376px) {
   #map {
-    height: 400px;
+    height: 320px;
   }
 }
 
@@ -248,7 +247,18 @@ body {
 
 
 @media (min-width: 570px) {
+  #map {
+    height: 400px;
+  }
+  .map-container {
+    margin: 0px 50px;
+  }
+  .card {
+    margin: 10px 50px !important;
+  }
+}
 
+@media (min-width: 775px) {
   .logo h1 {
     font-size: 65px;
   }
@@ -269,42 +279,31 @@ body {
     font-size: 27px;
     margin-left: 9px;
   }
-   #map {
-    height: 400px;
-  }
-  .map-container {
-    margin: 0px 50px;
-  }
-  .card {
-    margin: 10px 50px !important;
-  }
 }
 
 
-@media (min-width: 992px) {
+@media (min-width: 820px) {
   .logo-size-change h1 {
     font-size: 53px !important;
   }
   .card, #info-swipe, #info-swipe {
     height: 245px;
+    max-height: 245px;
+
   }
-  .main-container {
-    margin: 0px 20px;
+  #main-content {
+    width: 735px;
+    max-width: 735px;
+    margin: 0 auto;
   }
 }
+
 
 @media (min-width: 1300px) {
-  .main-container {
-    margin: 0px 220px;
-  }
-}
-
-@media (min-width: 1800px) {
-  .map-container {
-    margin: 0px 50px;
-  }
-  .main-container {
-    margin: 50px 550px;
+  #main-content {
+    width: 850px;
+    max-width: 850px;
+    margin: 0 auto;
   }
 }
 
