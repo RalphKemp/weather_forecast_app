@@ -15,7 +15,6 @@ const fweg = document.getElementById('fweg');
 const body = document.getElementsByTagName("BODY")[0];
 
 
-
 function kelvinToDegrees(kelv) {
   const temperature =(kelv - 273.15);
   return (Math.round(temperature * 100) / 100);
@@ -91,7 +90,6 @@ formValidation();
       });
     });
 
-
   fetch(urls[1])
       .then(response => response.json())
       .then((data) => {
@@ -162,7 +160,7 @@ formValidation();
             }
         });
 
-        // SWIPER
+      // SWIPER
 
       var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
@@ -186,4 +184,3 @@ formValidation();
 
 search.addEventListener("keyup", enter);
 button.addEventListener("click", hello);
-

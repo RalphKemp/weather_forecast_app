@@ -14,6 +14,10 @@ body {
 .body-after {
   background-image: none;
   background: linear-gradient(#ffa39b, #f9f7f7);
+  background-size: cover;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 #chartjs-container {
@@ -194,8 +198,6 @@ body {
 
 .swiper-container {
   text-align: center;
-  // margin-right: 20px !important;
-  // margin-left: 20px !important;
 }
 
 .swal-footer {
@@ -210,6 +212,7 @@ body {
 .swal-modal {
   width: 230px;
 }
+
 
 
 // responsive
@@ -283,7 +286,6 @@ body {
     font-size: 27px;
     margin-left: 9px;
   }
-
   .logo-size-change h1 {
     font-size: 53px !important;
   }
@@ -291,15 +293,16 @@ body {
     height: 245px !important;
     max-height: 245px !important;
   }
-
   #chart-swipe {
     height: auto;
   }
-
   #main-content {
     width: 735px;
     max-width: 735px;
     margin: 0 auto;
+  }
+  .map-container {
+    margin-bottom: 35px;
   }
 }
 
@@ -311,5 +314,3 @@ body {
     margin: 0 auto;
   }
 }
-
-
