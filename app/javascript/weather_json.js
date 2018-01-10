@@ -13,7 +13,7 @@ const slogan = document.querySelector('.slogan');
 const logo = document.querySelector('.logo');
 const fweg = document.getElementById('fweg');
 const body = document.getElementsByTagName("BODY")[0];
-
+const about = document.getElementById('about-link-container');
 
 function kelvinToDegrees(kelv) {
   const temperature =(kelv - 273.15);
@@ -65,7 +65,7 @@ formValidation();
       const currentTemp = kelvinToDegrees(data.main.temp);
 
       mainContent.classList.remove('hide');
-
+      about.classList.remove('hide');
       infoSwipe.insertAdjacentHTML('afterbegin',
         `<div class="card">
           <div class="card-content">
