@@ -213,6 +213,14 @@ body {
   width: 230px;
 }
 
+#about-link-container {
+  height: calc(100vh - 500px);
+}
+
+.about-link {
+  position: absolute;
+  bottom: 10px;
+}
 
 
 // responsive

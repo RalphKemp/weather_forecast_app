@@ -14,7 +14,6 @@ const logo = document.querySelector('.logo');
 const fweg = document.getElementById('fweg');
 const body = document.getElementsByTagName("BODY")[0];
 
-
 function kelvinToDegrees(kelv) {
   const temperature =(kelv - 273.15);
   return (Math.round(temperature * 100) / 100);
@@ -29,7 +28,6 @@ function formValidation() {
 
 function buildPage() {
   infoSwipe.innerHTML = "";
-
   map.innerHTML = "";
   logoAndForm.classList.remove('top-margin');
   slogan.classList.add('slogan-remove');
