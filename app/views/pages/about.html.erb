@@ -1,1 +1,43 @@
-<p>this page will include screenshots of the design/build process</p>
+<div class="about-title">
+  <h3>Build Process</h3>
+</div>
+
+<div class="col-xs-12 col-lg-6">
+    <p>I basically wanted some simple form validation on the home page, but when I put a form tag around my html input the page had a weird reloading bug. I wanted the main javascript to run only after the form validation, so i i made the function into a const variable, then added it to an event listener at the bottom of the page. Then i wrapped that in a form validation function.
+
+  putting the urls const outside of the function variable means the code stops working
+
+  thought i was going to use google maps api for the search validation, but realised i could just do it with the openweather maps api - if the data.cod = 404, then have the error message pop up. However i couldn’t put this into it’s own fucntion as it would raise an undefined error - need to figure out how to do that. I tried to do if(typeof data == undefined && data.message = 404) but it didn’t work lol. Also, this way i’ve done it means the data already displayed on the page isn’t refreshed, and the error message still pops up.
+  </p>
+</div>
+
+<div class="col-xs-12 col-lg-6">
+  <p>
+    however the the exit() in my fetch function is not exiting the whole fucntion.
+
+    (fixedsearch)(more or less)
+    so now we get two different messages when typing wrong, and the buildpage is it’s own function called after the second validation. I then realised i had to add a return false statement in the second fetch also, as the browser would still try and read those varobles. Need to look more into escaping parent functions.
+
+    wanted main search home page to have page that didn’t scroll, so i automatically hid it then removed the hide class after the two validations.
+    last thing to do now is just to finish the actual forecast chart ahhhhh.
+
+    calling the median method on the arrays was giving out large decimal numbers, so i wrapped the median(one) functions with the kelvin to degrees function, and it worked.
+    </p>
+</div>
+
+<div class="back-to-home">
+  <p><%= link_to 'go back to app', root_path %></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
