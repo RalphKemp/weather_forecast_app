@@ -3,7 +3,8 @@ html {
 }
 
 body {
-  position: relative;
+  // height: 100%;
+  // position: relative;
   background-image: url("hi.png"), linear-gradient(#ffa39b, #f9f7f7);
   background-size: contain;
   margin: 0;
@@ -214,13 +215,18 @@ body {
 }
 
 #about-link-container {
-  height: calc(100vh - 500px);
+  height: 30px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
 }
 
-.about-link {
-  position: absolute;
-  bottom: 10px;
-}
+.about-link  p {
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+  }
 
 
 // responsive
