@@ -12,6 +12,7 @@ const logoAndForm = document.querySelector('.logo-and-form');
 const slogan = document.querySelector('.slogan');
 const logo = document.querySelector('.logo');
 const fweg = document.getElementById('fweg');
+const body = document.getElementsByTagName("BODY")[0];
 
 
 
@@ -34,6 +35,7 @@ function buildPage() {
   logoAndForm.classList.remove('top-margin');
   slogan.classList.add('slogan-remove');
   logo.classList.add('logo-size-change');
+  body.classList.add('body-after');
 }
 
 function median(array) {

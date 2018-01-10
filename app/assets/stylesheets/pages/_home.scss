@@ -4,23 +4,16 @@ html {
 
 body {
   position: relative;
-  background: linear-gradient(#ffa39b, #f9f7f7);
-  background-size: cover;
+  background-image: url("hi.png"), linear-gradient(#ffa39b, #f9f7f7);
+  background-size: contain;
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-// .sun-container {
-//   height: 100vh;
-//   width: 100%;
-//   background-image: url("sunsun.jpg");
-// }
-
-.new-color {
-  background: linear-gradient(#f76659, #f9f7f7) !important;
-  z-index: 10;
-  // will need to get rid of images here anyway.
+.body-after {
+  background-image: none;
+  background: linear-gradient(#ffa39b, #f9f7f7);
 }
 
 #chartjs-container {
