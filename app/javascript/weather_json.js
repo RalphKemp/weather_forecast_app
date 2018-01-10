@@ -65,7 +65,7 @@ formValidation();
       const currentTemp = kelvinToDegrees(data.main.temp);
 
       mainContent.classList.remove('hide');
-      about.classList.remove('hide');
+      about.classList.add('hide');
       infoSwipe.insertAdjacentHTML('afterbegin',
         `<div class="card">
           <div class="card-content">
