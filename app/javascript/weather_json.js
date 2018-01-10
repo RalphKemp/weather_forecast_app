@@ -12,8 +12,8 @@ const logoAndForm = document.querySelector('.logo-and-form');
 const slogan = document.querySelector('.slogan');
 const logo = document.querySelector('.logo');
 const fweg = document.getElementById('fweg');
-
-
+const body = document.getElementsByTagName("BODY")[0];
+const about = document.getElementById('about-link-container');
 
 function kelvinToDegrees(kelv) {
   const temperature =(kelv - 273.15);
@@ -29,11 +29,11 @@ function formValidation() {
 
 function buildPage() {
   infoSwipe.innerHTML = "";
-
   map.innerHTML = "";
   logoAndForm.classList.remove('top-margin');
   slogan.classList.add('slogan-remove');
   logo.classList.add('logo-size-change');
+  body.classList.add('body-after');
 }
 
 function median(array) {
@@ -65,7 +65,7 @@ formValidation();
       const currentTemp = kelvinToDegrees(data.main.temp);
 
       mainContent.classList.remove('hide');
-
+      about.classList.remove('hide');
       infoSwipe.insertAdjacentHTML('afterbegin',
         `<div class="card">
           <div class="card-content">
@@ -88,7 +88,6 @@ formValidation();
         map: map
       });
     });
-
 
   fetch(urls[1])
       .then(response => response.json())
@@ -160,7 +159,7 @@ formValidation();
             }
         });
 
-        // SWIPER
+      // SWIPER
 
       var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
@@ -184,4 +183,3 @@ formValidation();
 
 search.addEventListener("keyup", enter);
 button.addEventListener("click", hello);
-

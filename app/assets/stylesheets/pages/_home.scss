@@ -3,17 +3,22 @@ html {
 }
 
 body {
-  position: relative;
-  background: linear-gradient(#ffa39b, #f9f7f7);
-  background-size: cover;
+  // height: 100%;
+  // position: relative;
+  background-image: url("hi.png"), linear-gradient(#ffa39b, #f9f7f7);
+  background-size: contain;
   margin: 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-.new-color {
-  background: linear-gradient(#f76659, #f9f7f7) !important;
-  // will need to get rid of images here anyway.
+.body-after {
+  background-image: none;
+  background: linear-gradient(#ffa39b, #f9f7f7);
+  background-size: cover;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 #chartjs-container {
@@ -194,8 +199,6 @@ body {
 
 .swiper-container {
   text-align: center;
-  // margin-right: 20px !important;
-  // margin-left: 20px !important;
 }
 
 .swal-footer {
@@ -210,6 +213,21 @@ body {
 .swal-modal {
   width: 230px;
 }
+
+#about-link-container {
+  height: 30px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  padding-right: 20px;
+}
+
+.about-link {
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+  }
 
 
 // responsive
@@ -283,7 +301,6 @@ body {
     font-size: 27px;
     margin-left: 9px;
   }
-
   .logo-size-change h1 {
     font-size: 53px !important;
   }
@@ -291,15 +308,16 @@ body {
     height: 245px !important;
     max-height: 245px !important;
   }
-
   #chart-swipe {
     height: auto;
   }
-
   #main-content {
     width: 735px;
     max-width: 735px;
     margin: 0 auto;
+  }
+  .map-container {
+    margin-bottom: 35px;
   }
 }
 
@@ -311,5 +329,3 @@ body {
     margin: 0 auto;
   }
 }
-
-
