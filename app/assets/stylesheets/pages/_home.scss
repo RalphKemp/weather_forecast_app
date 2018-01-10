@@ -256,9 +256,13 @@ body {
   .card {
     margin: 10px 50px !important;
   }
+  #chartjs-container {
+    margin: 0px 50px !important;
+  }
 }
 
-@media (min-width: 775px) {
+
+@media (min-width: 820px) {
   .logo h1 {
     font-size: 65px;
   }
@@ -279,18 +283,19 @@ body {
     font-size: 27px;
     margin-left: 9px;
   }
-}
 
-
-@media (min-width: 820px) {
   .logo-size-change h1 {
     font-size: 53px !important;
   }
-  .card, #info-swipe, #info-swipe {
-    height: 245px;
-    max-height: 245px;
-
+  .card, #info-swipe, #info-swipe, #chartjs-container {
+    height: 245px !important;
+    max-height: 245px !important;
   }
+
+  #chart-swipe {
+    height: auto;
+  }
+
   #main-content {
     width: 735px;
     max-width: 735px;
