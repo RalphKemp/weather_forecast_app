@@ -13,7 +13,7 @@ const slogan = document.querySelector('.slogan');
 const logo = document.querySelector('.logo');
 const fweg = document.getElementById('fweg');
 const body = document.getElementsByTagName("BODY")[0];
-const about = document.getElementById('about-link-container');
+
 
 function kelvinToDegrees(kelv) {
   const temperature =(kelv - 273.15);
@@ -65,7 +65,7 @@ formValidation();
       const currentTemp = kelvinToDegrees(data.main.temp);
 
       mainContent.classList.remove('hide');
-      about.classList.add('hide');
+
       infoSwipe.insertAdjacentHTML('afterbegin',
         `<div class="card">
           <div class="card-content">
@@ -111,12 +111,6 @@ formValidation();
         let three = temps.splice(0,8);
         let four = temps.splice(0,8);
         let five = temps.splice(0,8);
-
-        function dayName(date) {
-          const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-          const day = new Date(date);
-          return days[day.getDay()];
-        }
 
         var myChart = new Chart(chartjs, {
           type: 'line',
