@@ -13,6 +13,7 @@ const slogan = document.querySelector('.slogan');
 const logo = document.querySelector('.logo');
 const fweg = document.getElementById('fweg');
 const body = document.getElementsByTagName("BODY")[0];
+var myChart = "";
 
 
 function kelvinToDegrees(kelv) {
@@ -30,6 +31,7 @@ function formValidation() {
 function buildPage() {
   infoSwipe.innerHTML = "";
   map.innerHTML = "";
+  myChart.destroy();
   logoAndForm.classList.remove('top-margin');
   slogan.classList.add('slogan-remove');
   logo.classList.add('logo-size-change');
@@ -112,6 +114,8 @@ formValidation();
         let four = temps.splice(0,8);
         let five = temps.splice(0,8);
 
+        destroyChart();
+
         var myChart = new Chart(chartjs, {
           type: 'line',
           data: {
@@ -167,6 +171,7 @@ formValidation();
         stopOnLast: true
       });
     });
+
   };
 
   const enter = (e) => {
@@ -177,3 +182,4 @@ formValidation();
 
 search.addEventListener("keyup", enter);
 button.addEventListener("click", hello);
+button.addEventListener("click", destroy);
