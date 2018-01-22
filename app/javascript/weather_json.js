@@ -94,7 +94,6 @@ formValidation();
       });
     });
 
-    replaceCanvas();
 
   fetch(urls[1])
       .then(response => response.json())
@@ -119,6 +118,7 @@ formValidation();
         let four = temps.splice(0,8);
         let five = temps.splice(0,8);
 
+        replaceCanvas();
 
         var myChart = new Chart(chartjs, {
           type: 'line',
