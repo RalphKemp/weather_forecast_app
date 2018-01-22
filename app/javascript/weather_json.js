@@ -13,7 +13,6 @@ const slogan = document.querySelector('.slogan');
 const logo = document.querySelector('.logo');
 const fweg = document.getElementById('fweg');
 const body = document.getElementsByTagName("BODY")[0];
-var myChart = "";
 
 
 function kelvinToDegrees(kelv) {
@@ -31,7 +30,6 @@ function formValidation() {
 function buildPage() {
   infoSwipe.innerHTML = "";
   map.innerHTML = "";
-  myChart.destroy();
   logoAndForm.classList.remove('top-margin');
   slogan.classList.add('slogan-remove');
   logo.classList.add('logo-size-change');
@@ -43,6 +41,11 @@ function median(array) {
   let avg = sum / array.length;
   return avg;
 }
+
+function replaceCanvas() {
+  document.getElementById('chartjs-container').innerHTML = `<canvas id="chartjs"></canvas>`;
+}
+
 
 const hello = (event) => {
 formValidation();
@@ -91,6 +94,8 @@ formValidation();
       });
     });
 
+    replaceCanvas();
+
   fetch(urls[1])
       .then(response => response.json())
       .then((data) => {
@@ -114,7 +119,6 @@ formValidation();
         let four = temps.splice(0,8);
         let five = temps.splice(0,8);
 
-        destroyChart();
 
         var myChart = new Chart(chartjs, {
           type: 'line',
@@ -182,4 +186,3 @@ formValidation();
 
 search.addEventListener("keyup", enter);
 button.addEventListener("click", hello);
-button.addEventListener("click", destroy);
