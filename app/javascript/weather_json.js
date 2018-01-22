@@ -42,6 +42,11 @@ function median(array) {
   return avg;
 }
 
+function replaceCanvas() {
+  document.getElementById('chartjs-container').innerHTML = `<canvas id="chartjs"></canvas>`;
+}
+
+
 const hello = (event) => {
 formValidation();
   const urls = [`https://api.openweathermap.org/data/2.5/weather?q=${search.value},UK&appid=231e634ee102fa27f134aef8711b9a05`,
@@ -89,6 +94,7 @@ formValidation();
       });
     });
 
+
   fetch(urls[1])
       .then(response => response.json())
       .then((data) => {
@@ -111,6 +117,8 @@ formValidation();
         let three = temps.splice(0,8);
         let four = temps.splice(0,8);
         let five = temps.splice(0,8);
+
+        replaceCanvas();
 
         var myChart = new Chart(chartjs, {
           type: 'line',
@@ -167,6 +175,7 @@ formValidation();
         stopOnLast: true
       });
     });
+
   };
 
   const enter = (e) => {
